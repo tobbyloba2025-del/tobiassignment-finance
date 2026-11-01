@@ -2,7 +2,7 @@ const transactions = [
     {
         id: 1,
         type: "income",
-        amount: 5000
+        amount: 7000
     },
     {
         id: 2,
@@ -13,6 +13,11 @@ const transactions = [
         id: 3,
         type: "income",
         amount: 3000
+    },
+     {
+        id: 4,
+        type: "expense",
+        amount: 2000
     }
 ];
 
