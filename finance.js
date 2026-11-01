@@ -3,7 +3,8 @@ const transactions = [
         id: 1,
         type: "income",
         amount: 5000
-    },
+    }, 
+    
     {
         id: 2,
         type: "expense",
@@ -15,5 +16,35 @@ const transactions = [
         amount: 3000
     }
 ];
+async function generateAuditReport(txArray) {
+    let totalIncome = 0;
+    let totalExpense = 0;
+
+    for (let transaction of txArray) {
+        if (transaction.type === "income") {
+            totalIncome += transaction.amount;
+        } else if (transaction.type === "expense") {
+            totalExpense += transaction.amount;
+        }
+    }
+
+    const netBalance = totalIncome - totalExpense;
+
+    await new Promise((resolve) => {
+        setTimeout(resolve, 2000);
+    });
+
+    return {
+        totalIncome,
+        totalExpense,
+        netBalance
+    };
+}
 
 console.log(transactions);
+(async () => {
+    const report = await generateAuditReport(transactions);
+
+    console.log("Financial Audit Report:");
+    console.log(report);
+})();
